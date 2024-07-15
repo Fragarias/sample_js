@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+    <style>
+      /*CSSを書くところ*/
+      h1 {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!--実際に表示される領域-->
+    <h1>Hello HTML</h1>
+    <input id="input">
+    <!--<button onclick="clicked();">ボタン</button>-->
+    <div id="output"></div>
+
+    <script>
+      // JavaScriptを書くところ
+      // console.log("Hello JavaScript");
+
+      // function evenSum(end) { //0以上100未満の偶数の和
+      //   let sum = 0;
+      //   for(let i = 0; i < end; i++) { //引数(end)の値以上になるまで変数(i)に１を足して繰り返し
+      //     if(i % 2 === 0) //変数(i)の値を２で割り切れる
+      //       sum += i; //sum + i をsumに代入
+      //   }
+      //   return sum; //sumの値で返す
+      // }
+      // console.log("合計", evenSum(100)); // => 合計 2450 (コンソール出力)
+
+      // function clicked() {
+      //   const input = document.getElementById("input");
+      //   const output = document.getElementById("output");
+      //   output.innerHTML = `<b>${input.value}</b>`;
+      // }
+
+        const input = document.getElementById("input");
+        input.addEventListener("keydown", (event) => {
+          console.log(event);
+          if (event.code === "Enter") {
+            const output = document.getElementById("output");
+            output.innerHTML += `<b>${input.value}</b><br>`;
+            input.value = "";
+          }
+        })
+        
+    </script>
+  </body>
+</html>
