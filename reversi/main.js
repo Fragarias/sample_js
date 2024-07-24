@@ -1,6 +1,12 @@
 const stage = document.getElementById("stage");
 const squareTemplate = document.getElementById("square-template");
 
+const stoneStateList = []; //配列定義
+
+const onClickSquare = (index) => {
+  console.log(index)
+}
+
 const createSquares = () => {
   for (let i = 0; i < 64; i++) {
     const square = squareTemplate.cloneNode(true); //テンプレートから要素をクローン
@@ -19,6 +25,12 @@ const createSquares = () => {
       defaultState = 0;
     }
     stone.setAttribute("data-state", defaultState);
+    stone.setAttribute("data-index", i); //インデックス番号をHTML要素に保持させる
+    stoneStateList.push(defaultState); //初期値を配列に格納
+
+    square.addEventListener('click', () => {
+      onClickSquare(i);
+    })
   }
 };
 
