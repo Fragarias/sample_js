@@ -4,7 +4,10 @@ const squareTemplate = document.getElementById("square-template");
 const stoneStateList = []; //配列定義
 
 const onClickSquare = (index) => {
-  console.log(index)
+  if (stoneStateList[index] !== 0) { //既に石が置かれている
+    alert("ここには置けないよ！");
+    return;
+  }
 }
 
 const createSquares = () => {
@@ -18,11 +21,11 @@ const createSquares = () => {
     let defaultState; //盤上各マスの石の状態定義
     // iの値によって石の状態を分岐
     if (i == 27 || i == 36) {
-      defaultState = 1;
+      defaultState = 1; //黒
     }else if(i == 28 || i ==35){
-      defaultState = 2;
+      defaultState = 2; //白
     }else{
-      defaultState = 0;
+      defaultState = 0; //石を置いていない状態
     }
     stone.setAttribute("data-state", defaultState);
     stone.setAttribute("data-index", i); //インデックス番号をHTML要素に保持させる
