@@ -4,7 +4,8 @@ const squareTemplate = document.getElementById("square-template");
 const stoneStateList = []; //配列定義
 
 let currentColor = 1;
-const currentTurnText = document.getElementById("current-turn");
+const currentTurnText = document.getElementById("current-turn"); //手番
+const passButton = document.getElementById("pass"); //パスボタン
 const getReversibleStones = (idx) => {
   // クリックしたマスから見て、各方向にマスがいくつあるかをあらかじめ計算する
   const squareNums = [
@@ -130,4 +131,14 @@ const createSquares = () => {
 
 window.onload = () => {
   createSquares();
+
+  passButton.addEventListener("click", () => {
+    currentColor = 3 - currentColor;
+
+    if (currentColor === 1) {
+      currentTurnText.textContent = "黒";
+    } else {
+      currentTurnText.textContent = "白";
+    }
+  })
 };
